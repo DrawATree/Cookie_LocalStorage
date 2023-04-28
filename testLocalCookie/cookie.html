@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./bootstrap.min.css" rel="stylesheet">
+        <script src="./bootstrap.css"></script>
+        <title>Test light/dark mode avec cookie</title>
+    </head>
+    <body id="thebody" class="bg-light">
+        <button type="button" onclick="themeToggle()">Theme Toggle</button>
+    </body>
+    
+    <script>
+        // Permet de faire en sorte que lors du load de la page
+        //   et si le cookie est en dark-mode, on set en dark
+        if (document.cookie.split(';')[0] == 'theme=dark-mode')
+            { setDark(); }
+
+        // Va modifier la valeur du body
+        function setLight() {
+            document.getElementById('thebody').classList.remove("bg-dark");
+            document.getElementById('thebody').classList.add("bg-light");
+        }
+
+        // Va modifier la valeur du body
+        function setDark() {
+            document.getElementById('thebody').classList.remove("bg-light");
+            document.getElementById('thebody').classList.add("bg-dark");
+        }
+
+        function themeToggle() {
+            // va chercher le premier cookie
+            let cookie = document.cookie.split(';')[0];
+
+            // Si le cookie = 'theme=dark-mode' on set en light-mode
+            //  sinon on set en dark
+            if (cookie && cookie == 'theme=dark-mode') {
+                document.cookie = "theme=light-mode; path=/";
+                setLight();
+            } else {
+                document.cookie = "theme=dark-mode; path=/";
+                setDark();
+            }
+        }
+    </script>
+</html>
