@@ -6,32 +6,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./bootstrap.min.css" rel="stylesheet">
         <script src="./bootstrap.css"></script>
-        <title>Test light/dark mode avec localstorage</title>
+        <title>Test light/dark mode avec local storage</title>
     </head>
-    <body id="thebody" class="bg-light">
+    <body id="id_body" class="bg-light">
         <button type="button" onclick="themeToggle()">Theme Toggle</button>
     </body>
 
     <script>
-        // Va chercher dans la localstorage l'item theme
+        // Va chercher dans la local storage l'item theme
         //  et si le theme = dark-mode, on set en dark
         if (localStorage.getItem("theme") == "dark-mode")
             { setDark(); }
 
         // Va modifier la valeur du body
         function setLight() {
-            document.getElementById('thebody').classList.remove("bg-dark");
-            document.getElementById('thebody').classList.add("bg-light");
+            document.getElementById('id_body').classList.remove("bg-dark");
+            document.getElementById('id_body').classList.add("bg-light");
         }
 
         // Va modifier la valeur du body
         function setDark() {
-            document.getElementById('thebody').classList.remove("bg-light");
-            document.getElementById('thebody').classList.add("bg-dark");
+            document.getElementById('id_body').classList.remove("bg-light");
+            document.getElementById('id_body').classList.add("bg-dark");
         }
 
         function themeToggle() {
-            // va chercher dans la localstorage l'item theme
+            // va chercher dans la local storage l'item theme
             let theme = localStorage.getItem("theme");
 
             // Si le item = 'theme=dark-mode' on set en light-mode
